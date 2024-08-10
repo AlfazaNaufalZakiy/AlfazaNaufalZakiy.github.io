@@ -1,0 +1,1 @@
+print("Makan ayam goyeng")
