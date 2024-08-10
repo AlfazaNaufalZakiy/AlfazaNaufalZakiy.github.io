@@ -1,1 +1,0 @@
-print("Makan ayam goyeng")
