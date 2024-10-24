@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelajaran Kosakata</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Pelajaran Kosakata</h1>
+        <nav>
+            <ul>
+                <li><button onclick="location.href='index.html'">Home</button></li>
+                <li><button onclick="location.href='quiz.html'">Kuis Pilihan Ganda</button></li>
+                <li><button onclick="location.href='sentence.html'">Latihan Menyusun Kalimat</button></li>
+                <li><button onclick="location.href='listening.html'">Latihan Mendengarkan</button></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h2>Kata-kata Baru</h2>
+        <div id="questionIndicator">Kosakata ke-1 dari 10</div> <!-- Penanda soal -->
+        <div id="vocabularyContainer">
+            <!-- Kosakata akan ditampilkan di sini secara dinamis -->
+        </div>
+        <div>
+            <button id="prevBtn" onclick="previousVocabulary()">Previous</button>
+            <button id="nextBtn" onclick="nextVocabulary()">Next</button>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 FunEnglishLab</p>
+    </footer>
+
+    <script src="js/vocabulary.js"></script>
+</body>
+</html>

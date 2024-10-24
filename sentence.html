@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- SweetAlert CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- Link ke CSS -->
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    
+<body>
+    <header>
+        <h1>Latihan Menyusun Kalimat</h1>
+        <nav>
+            <ul>
+                <li><button onclick="location.href='index.html'">Home</button></li>
+                <li><button onclick="location.href='vocabulary.html'">Pelajaran Kosakata</button></li>
+                <li><button onclick="location.href='quiz.html'">Kuis Pilihan Ganda</button></li>
+                <li><button onclick="location.href='listening.html'">Latihan Mendengarkan</button></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h2>Susun kata-kata berikut</h2>
+        <h3>Tarik dan masukkan kata ke dalam kotak yang tersedia</h3>
+        <div id="questionIndicator">Kosakata ke-1 dari 10</div> <!-- Penanda soal -->
+        <div id="sentenceContainer">
+            <!-- Kata-kata akan dimuat secara dinamis -->
+        </div>
+        <div id="dropZone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div>
+            <button id="prevBtn" onclick="previousSentence()">Previous</button>
+            <button id="nextBtn" onclick="nextSentence()">Next</button>
+            <button onclick="checkSentence()">Cek Susunan</button>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 FunEnglishLab</p>
+    </footer>
+
+    <script src="js/sentence.js"></script>
+</body>
+</html>

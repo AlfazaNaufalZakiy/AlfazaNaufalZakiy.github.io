@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Listening</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- SweetAlert for notifications -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <header>
+        <h1>Latihan Listening</h1>
+        <nav>
+            <ul>
+                <li><button onclick="location.href='index.html'">Home</button></li>
+                <li><button onclick="location.href='vocabulary.html'">Pelajaran Kosakata</button></li>
+                <li><button onclick="location.href='quiz.html'">Kuis Pilihan Ganda</button></li>
+                <li><button onclick="location.href='sentence.html'">Latihan Menyusun Kalimat</button></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h2>Dengarkan dan tuliskan apa yang kamu dengar</h2>
+        <div id="questionIndicator">Soal ke-1 dari 10</div> <!-- Penanda soal -->
+        <div id="listeningContainer">
+            <!-- Soal akan dimuat di sini secara dinamis -->
+        </div>
+        <input type="text" id="userInput" placeholder="Masukkan apa yang kamu dengar di sini">
+        <div>
+            <button id="prevBtn" onclick="previousQuestion()">Previous</button>
+            <button id="nextBtn" onclick="nextQuestion()">Next</button>
+            <button onclick="checkAnswer()">Cek Jawaban</button>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 FunEnglishLab</p>
+    </footer>
+
+    <script src="js/listening.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kuis Pilihan Ganda</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <!-- SweetAlert untuk notifikasi -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>    
+<body>
+    <header>
+        <h1>Kuis Pilihan Ganda</h1>
+        <nav>
+            <ul>
+                <li><button onclick="location.href='index.html'">Home</a></li>
+                <li><button onclick="location.href='vocabulary.html'">Pelajaran Kosakata</a></li>
+                <li><button onclick="location.href='sentence.html'">Latihan Menyusun Kalimat</a></li>
+                <li><button onclick="location.href='listening.html'">Latihan Mendengarkan</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h2>Pilih jawaban yang benar</h2>
+        <div id="questionIndicator">Kosakata ke-1 dari 10</div> <!-- Penanda soal -->
+        <div id="quiz-container">
+            <p id="question"></p>
+            <div>
+                <button class="option" onclick="selectOption(0)">Option 1</button>
+                <button class="option" onclick="selectOption(1)">Option 2</button>
+                <button class="option" onclick="selectOption(2)">Option 3</button>
+                <button class="option" onclick="selectOption(3)">Option 4</button>
+            </div>
+            <div>
+                <button id="prevBtn" onclick="previousQuestion()">Previous</button>
+                <button id="nextBtn" onclick="nextQuestion()">Next</button>
+                <button id="submitBtn" onclick="submitAnswer()">Submit</button>
+            </div>
+            <p id="resultMessage"></p> <!-- Tambahan untuk menampilkan hasil -->
+        </div>
+    </section>    
+    <footer>
+        <p>&copy; 2024 FunEnglishLab</p>
+    </footer>
+
+    <script src="js/quiz.js"></script>
+</body>
+</html>
