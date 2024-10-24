@@ -15,19 +15,19 @@ const vocabularies = [
         word: "Meja",
         meaning: "Table",
         image: "assets/images/table.png",
-        audio: "assets/audio/chair.ogg"
+        audio: "assets/audio/table.ogg"
     },
     {
         word: "Laptop",
         meaning: "Laptop",
         image: "assets/images/laptop.png",
-        audio: "assets/audio/chair.ogg"
+        audio: "assets/audio/laptop.ogg"
     },
     {
         word: "Dog",
         meaning: "Anjing",
         image: "assets/images/dog.png",
-        audio: "assets/audio/chair.ogg"
+        audio: "assets/audio/dog.ogg"
     },
 ];
 
