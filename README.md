@@ -1,3 +1,3 @@
-#Alfaza Naufal Zakiy 18222126#
+#Alfaza Naufal Zakiy 18222126
 
-#Proyek website PAWM#
+#Proyek website PAWM
