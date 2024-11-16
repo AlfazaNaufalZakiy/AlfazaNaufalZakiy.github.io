@@ -20,7 +20,7 @@ const firebaseConfig = {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         alert("Registration successful!");
-        window.location.href = "login.html"; // Redirect to login page after registration
+        window.location.href = "index.html"; // Redirect to login page after registration
       })
       .catch((error) => {
         alert("Registration failed: " + error.message);
