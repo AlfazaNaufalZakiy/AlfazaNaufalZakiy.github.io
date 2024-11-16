@@ -1,32 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FunEnglishLab</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
 </head>
 <body>
-    <header>
-        <h1>FunEnglishLab</h1>
-        <nav>
-            <ul>
-                <li><button onclick="location.href='vocabulary.html'">Pelajaran Kosakata</button></li>
-                <li><button onclick="location.href='quiz.html'">Kuis Pilihan Ganda</button></li>
-                <li><button onclick="location.href='sentence.html'">Latihan Menyusun Kalimat</button></li>
-                <li><button onclick="location.href='listening.html'">Latihan Mendengarkan</button></li>
-            </ul>
-        </nav>
-    </header>
-    <section>
-        <article>
-            <h2>Selamat Datang di FunEnglishLab!</h2>
-            <p>FunEnglishLab merupakan sarana belajar untuk memahami Bahasa Inggris. Kami memiliki 4 pelajaran yang bebas anda pilih sesuai kebutuhan anda.</p>
-            <p>Pilih pelajaran yang ingin kamu coba dari menu di atas. Selamat belajar!</p>
-        </article>
-    </section>
-    <footer>
-        <p>&copy; 2024 FunEnglishLab</p>
-    </footer>
+  <div class="container">
+    <h2>Login</h2>
+    <form id="login-form" onsubmit="loginUser(event)">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p>Don’t have an account? <a href="register.html">Register here</a>.</p>
+  </div>
+  <script src="login.js"></script>
 </body>
 </html>
