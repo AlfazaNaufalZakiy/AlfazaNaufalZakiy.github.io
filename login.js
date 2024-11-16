@@ -21,7 +21,7 @@ const firebaseConfig = {
       .then((userCredential) => {
         alert("Login successful!");
         // You can redirect to a different page or dashboard here
-        window.location.href = "index.html"; // Example redirection to a welcome page
+        window.location.href = "main.html"; // Example redirection to a welcome page
       })
       .catch((error) => {
         alert("Login failed: " + error.message);
