@@ -22,6 +22,48 @@ const sentences = [
 ];
 
 let currentSentenceIndex = 0;
+let score = 0; // Total skor pengguna
+let answeredCorrectly = Array(sentences.length).fill(false); // Melacak soal yang sudah dijawab benar
+
+function updateScore() {
+    const scoreElement = document.getElementById('resultMessage');
+    const calculatedScore = (score / sentences.length) * 100; // Hitung skor sebagai persentase
+    scoreElement.innerText = `Skor Anda: ${calculatedScore.toFixed(2)} dari 100`;
+}
+
+function updateProgressBar() {
+    const progressBar = document.getElementById('progress-bar');
+    const progress = (score / sentences.length) * 100; // Hitung progress berdasarkan skor
+    progressBar.style.width = `${progress}%`;
+    progressBar.textContent = `${Math.round(progress)}%`;
+}
+
+function submitAnswer(userSentence) {
+    const correctSentence = sentences[currentSentenceIndex].correctSentence;
+
+    if (userSentence === correctSentence) {
+        if (!answeredCorrectly[currentSentenceIndex]) {
+            score++; // Tambah skor hanya jika belum dihitung sebelumnya
+            answeredCorrectly[currentSentenceIndex] = true; // Tandai soal ini sebagai dijawab benar
+        }
+        Swal.fire({
+            title: 'Benar!',
+            text: 'Jawaban Anda benar.',
+            icon: 'success',
+            confirmButtonText: 'Oke'
+        });
+    } else {
+        Swal.fire({
+            title: 'Salah!',
+            text: 'Jawaban Anda salah.',
+            icon: 'error',
+            confirmButtonText: 'Coba lagi'
+        });
+    }
+
+    updateScore();
+    updateProgressBar();
+}
 
 // Fungsi untuk mengacak urutan array
 function shuffle(array) {
@@ -67,8 +109,11 @@ function checkSentence() {
         .join(' ')
         .trim();
 
-    // Cek apakah susunan benar atau salah menggunakan SweetAlert
     if (userSentence === sentences[currentSentenceIndex].correctSentence) {
+        if (!answeredCorrectly[currentSentenceIndex]) {
+            score++; // Tambah skor hanya jika belum dihitung sebelumnya
+            answeredCorrectly[currentSentenceIndex] = true; // Tandai soal ini sebagai dijawab benar
+        }
         Swal.fire({
             title: 'Benar!',
             text: 'Susunan Anda benar.',
@@ -83,7 +128,13 @@ function checkSentence() {
             confirmButtonText: 'Coba lagi'
         });
     }
+
+    // Perbarui skor dan progress bar
+    updateScore();       // Panggil fungsi untuk memperbarui skor
+    updateProgressBar(); // Panggil fungsi untuk memperbarui progress bar
 }
+
+
 
 // Fungsi untuk navigasi ke soal berikutnya
 function nextSentence() {
@@ -91,6 +142,7 @@ function nextSentence() {
         currentSentenceIndex++;
         loadSentence(currentSentenceIndex);
     }
+    updateProgressBar();
 }
 
 // Fungsi untuk navigasi ke soal sebelumnya
@@ -99,6 +151,7 @@ function previousSentence() {
         currentSentenceIndex--;
         loadSentence(currentSentenceIndex);
     }
+    updateProgressBar();
 }
 
 // Fungsi drag and drop
@@ -120,4 +173,6 @@ function drop(event) {
 // Tampilkan soal pertama saat halaman dimuat
 window.onload = function() {
     loadSentence(currentSentenceIndex);
+    updateScore();
+    updateProgressBar();
 };

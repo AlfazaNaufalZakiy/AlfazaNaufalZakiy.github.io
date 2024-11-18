@@ -28,8 +28,15 @@
     </header>
     <section>
         <h2>Susun kata-kata berikut</h2>
+        <h3>Progress</h3>
+        <div id="progress-container" style="width: 100%; background-color: #d3d3d3; border-radius: 25px; margin: 20px 0;">
+            <div id="progress-bar" style="width: 0%; height: 20px; background-color: #5aa4ff; border-radius: 25px; text-align: center; line-height: 20px; color: rgb(255, 255, 255);">
+                0%
+            </div>
+        </div>
         <h3>Tarik dan masukkan kata ke dalam kotak yang tersedia</h3>
         <div id="questionIndicator">Kosakata ke-1 dari 10</div> <!-- Penanda soal -->
+        <p id="resultMessage">Skor Anda: 0</p>
         <div id="sentenceContainer">
             <!-- Kata-kata akan dimuat secara dinamis -->
         </div>

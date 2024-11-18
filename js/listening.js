@@ -11,7 +11,61 @@ const listeningQuestions = [
     { audio: "assets/audio/question10.ogg", correctAnswer: "He is a teacher" }
 ];
 
+let score = 0;
+let answeredCorrectly = Array(listeningQuestions.length).fill(false);
 let currentQuestionIndex = 0;
+
+function updateScore() {
+    const scoreElement = document.getElementById('resultMessage');
+    const calculatedScore = (score / listeningQuestions.length) * 100;
+    scoreElement.innerText = `Skor Anda: ${calculatedScore.toFixed(2)} dari 100`;
+}
+
+function updateProgressBar() {
+    const progressBar = document.getElementById('progress-bar');
+    const progress = (score / listeningQuestions.length) * 100;
+    progressBar.style.width = `${progress}%`;
+    progressBar.textContent = `${Math.round(progress)}%`;
+}
+
+function submitAnswer() {
+    const userAnswer = document.getElementById('userInput').value.trim().toLowerCase();
+    const correctAnswer = listeningQuestions[currentQuestionIndex].correctAnswer.toLowerCase();
+
+    if (userAnswer === "") {
+        Swal.fire({
+            title: 'Warning',
+            text: 'Jawaban tidak boleh kosong!',
+            icon: 'warning',
+            confirmButtonText: 'Oke'
+        });
+        return;
+    }
+
+    if (userAnswer === correctAnswer) {
+        if (!answeredCorrectly[currentQuestionIndex]) {
+            score++; // Tambah skor hanya jika belum dihitung sebelumnya
+            answeredCorrectly[currentQuestionIndex] = true; // Tandai soal ini sebagai dijawab benar
+        }
+        Swal.fire({
+            title: 'Success',
+            text: 'Jawaban benar!',
+            icon: 'success',
+            confirmButtonText: 'Oke'
+        });
+    } else {
+        Swal.fire({
+            title: 'Error',
+            text: 'Jawaban salah, coba lagi.',
+            icon: 'error',
+            confirmButtonText: 'Coba lagi'
+        });
+    }
+
+    // Perbarui skor dan progress bar
+    updateScore();
+    updateProgressBar();
+}
 
 function loadQuestion(index) {
     const listeningContainer = document.getElementById('listeningContainer');
@@ -50,6 +104,10 @@ function checkAnswer() {
     const correctAnswer = listeningQuestions[currentQuestionIndex].correctAnswer.toLowerCase();
 
     if (userAnswer === correctAnswer) {
+        if (!answeredCorrectly[currentQuestionIndex]) {
+            score++; // Tambah skor hanya jika belum dihitung sebelumnya
+            answeredCorrectly[currentQuestionIndex] = true; // Tandai soal ini sebagai dijawab benar
+        }
         Swal.fire({
             title: 'Success',
             text: 'Jawaban benar!',
@@ -64,9 +122,16 @@ function checkAnswer() {
             confirmButtonText: 'Coba lagi'
         });
     }
+
+    // Perbarui skor dan progress bar
+    updateScore();
+    updateProgressBar();
 }
 
+
 // Tampilkan soal pertama saat halaman dimuat
-window.onload = function() {
+window.onload = function () {
     loadQuestion(currentQuestionIndex);
+    updateScore();
+    updateProgressBar();
 };

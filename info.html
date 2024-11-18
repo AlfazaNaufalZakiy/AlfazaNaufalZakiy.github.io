@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info Pengguna</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Info Pengguna</h1>
+        <nav>
+            <ul>
+                <li><button onclick="location.href='main.html'">Home</button></li>
+                <li><button onclick="location.href='vocabulary.html'">Pelajaran Kosakata</button></li>
+                <li><button onclick="location.href='quiz.html'">Kuis Pilihan Ganda</button></li>
+                <li><button onclick="location.href='sentence.html'">Latihan Menyusun Kalimat</a></li>
+                <li><button onclick="location.href='listening.html'">Latihan Mendengarkan</button></li>
+                <button id="logout">Logout</button>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Selamat Datang!</h2>
+        <p>Email Pengguna: <span id="user-email"></span></p>
+        <h3>Progress Pengguna</h3>
+        <div>
+            <p>Progress Quiz:</p>
+            <div id="progress-quiz-bar" style="background: #ccc; border-radius: 20px; width: 100%; height: 25px;">
+                <div id="progress-quiz" style="background: #0079b5; width: 0%; height: 100%; border-radius: 20px; text-align: center; line-height: 25px; color: white;">
+                    0%
+                </div>
+            </div>
+        </div>
+        <div>
+            <p>Progress Sentence:</p>
+            <div id="progress-sentence-bar" style="background: #ccc; border-radius: 20px; width: 100%; height: 25px;">
+                <div id="progress-sentence" style="background: #0079b5; width: 0%; height: 100%; border-radius: 20px; text-align: center; line-height: 25px; color: white;">
+                    0%
+                </div>
+            </div>
+        </div>
+        <div>
+            <p>Progress Listening:</p>
+            <div id="progress-listening-bar" style="background: #ccc; border-radius: 20px; width: 100%; height: 25px;">
+                <div id="progress-listening" style="background: #0079b5; width: 0%; height: 100%; border-radius: 20px; text-align: center; line-height: 25px; color: white;">
+                    0%
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>© 2024 FunEnglishLab</p>
+    </footer>
+    <script src="config.js"></script>
+    <script src="js/info.js"></script>
+</body>
+</html>
