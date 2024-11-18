@@ -103,6 +103,15 @@ const questions = [
 
 let currentQuestionIndex = 0;
 let selectedOption = null; // Menyimpan jawaban yang dipilih
+let score = 0; // Skor pengguna
+let answeredCorrectly = Array(questions.length).fill(false); // Menyimpan status apakah soal dijawab dengan benar
+
+function updateProgressBar() {
+    const progressBar = document.getElementById('progress-bar');
+    const calculatedScore = (score / questions.length) * 100; // Hitung progress berdasarkan skor
+    progressBar.style.width = `${calculatedScore}%`;
+    progressBar.textContent = `${Math.round(calculatedScore)}%`; // Tampilkan angka progress
+}
 
 function showQuestion() {
     const questionElement = document.getElementById('question');
@@ -122,6 +131,9 @@ function showQuestion() {
     questionIndicator.innerText = `Soal ke-${currentQuestionIndex + 1} dari ${questions.length}`;
 
     selectedOption = null; // Reset pilihan yang dipilih
+
+    // Update progress bar
+    updateProgressBar();
 }
 
 function selectOption(optionIndex) {
@@ -148,6 +160,10 @@ function submitAnswer() {
 
     // Periksa apakah jawaban benar atau salah menggunakan SweetAlert
     if (selectedOption === correctAnswer) {
+        if (!answeredCorrectly[currentQuestionIndex]) {
+            score++; // Tambah skor hanya jika belum dihitung
+            answeredCorrectly[currentQuestionIndex] = true; // Tandai sebagai sudah dijawab dengan benar
+        }
         Swal.fire({
             icon: 'success',
             title: 'Benar!',
@@ -160,6 +176,16 @@ function submitAnswer() {
             text: 'Jawaban Anda salah.'
         });
     }
+
+    // Perbarui skor real-time
+    updateScore();
+    updateProgressBar(); // Perbarui progress bar
+}
+
+function updateScore() {
+    const resultMessage = document.getElementById('resultMessage');
+    const calculatedScore = (score / questions.length) * 100; // Hitung skor dalam rentang 0-100
+    resultMessage.innerText = `Skor Anda: ${calculatedScore.toFixed(2)} dari 100`;
 }
 
 function nextQuestion() {
@@ -167,6 +193,7 @@ function nextQuestion() {
         currentQuestionIndex++;
         showQuestion();
     }
+    updateProgressBar();
 }
 
 function previousQuestion() {
@@ -174,9 +201,12 @@ function previousQuestion() {
         currentQuestionIndex--;
         showQuestion();
     }
+    updateProgressBar();
 }
 
 // Tampilkan pertanyaan pertama saat halaman dimuat
 window.onload = function() {
     showQuestion();
+    updateScore(); // Tampilkan skor awal
+    updateProgressBar()
 };
