@@ -1,12 +1,12 @@
 // Firebase configuration
 var firebaseConfig = {
-  apiKey: firebaseConfig.apiKey,
-  authDomain: firebaseConfig.authDomain,
-  projectId: firebaseConfig.projectId,
-  storageBucket: firebaseConfig.storageBucket,
-  messagingSenderId: firebaseConfig.messagingSenderId,
-  appId: firebaseConfig.appId,
-  measurementId: firebaseConfig.measurementId
+  apiKey: config.apiKey,
+  authDomain: config.authDomain,
+  projectId: config.projectId,
+  storageBucket: config.storageBucket,
+  messagingSenderId: config.messagingSenderId,
+  appId: config.appId,
+  measurementId: config.measurementId
 };
 
 firebase.initializeApp(firebaseConfig);
