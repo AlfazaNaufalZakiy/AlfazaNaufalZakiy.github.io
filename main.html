@@ -20,6 +20,7 @@
                 <li><button onclick="location.href='quiz.html'">Kuis Pilihan Ganda</button></li>
                 <li><button onclick="location.href='sentence.html'">Latihan Menyusun Kalimat</button></li>
                 <li><button onclick="location.href='listening.html'">Latihan Mendengarkan</button></li>
+                <button id="logout">Logout</button>
             </ul>
         </nav>
     </header>
@@ -33,5 +34,9 @@
     <footer>
         <p>&copy; 2024 FunEnglishLab</p>
     </footer>
+    <script>
+        // Sambungkan tombol logout ke fungsi logoutUser di auth.js
+        document.getElementById("logout").addEventListener("click", logoutUser);
+    </script>
 </body>
 </html>

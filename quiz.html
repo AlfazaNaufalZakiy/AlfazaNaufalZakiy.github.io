@@ -23,6 +23,7 @@
                 <li><button onclick="location.href='vocabulary.html'">Pelajaran Kosakata</a></li>
                 <li><button onclick="location.href='sentence.html'">Latihan Menyusun Kalimat</a></li>
                 <li><button onclick="location.href='listening.html'">Latihan Mendengarkan</a></li>
+                <button id="logout">Logout</button>
             </ul>
         </nav>
     </header>
@@ -48,6 +49,9 @@
     <footer>
         <p>&copy; 2024 FunEnglishLab</p>
     </footer>
-
+    <script>
+        // Sambungkan tombol logout ke fungsi logoutUser di auth.js
+        document.getElementById("logout").addEventListener("click", logoutUser);
+    </script>
 </body>
 </html>
